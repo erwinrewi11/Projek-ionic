@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile-header-bg"></div>
+  <div class="header-content">
+    <img src="../assets/foto/index.png" alt="">
+    <ion-label>
+      <h2>Hello</h2>
+      <p>Selamat Datang di Agenda!</p>
+    </ion-label>
+  </div>
+  <div class="action-button">
+    <ion-button (click)="logout()">
+      <ion-icon slot="start" name="log-out-outline"></ion-icon> Logout
+    </ion-button>
+  </div>
+  <ion-item href="/forgot-password">
+    <ion-icon slot="start" name="key-outline"></ion-icon>Lupa Password
+  </ion-item>
+  <ion-list lines="none">
+    <ion-item href="/about">
+      <ion-icon slot="start" name="information-circle-outline"></ion-icon>About
+    </ion-item>
+    
+  </ion-list>
+</ion-content>

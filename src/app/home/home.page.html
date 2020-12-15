@@ -1,0 +1,33 @@
+<ion-header [translucent]="true" ecollapse="condens">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <div class="title-block">
+    <div class="heading">Agenda</div>
+  </div>
+  <ion-searchbar animated (ionInput)="search($event)"></ion-searchbar>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Agenda</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let note of (notes | async)">
+      <ion-thumbnail slot="start">
+        <img src="../assets/foto/index.png">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{note.title}}</h2>
+        <p>{{note.content}}</p>
+      </ion-label>
+      <ion-button fill="outline" slot="end" [routerLink]="'/view-note/'+note.id">View</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll threshold="100px"(ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading..">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
